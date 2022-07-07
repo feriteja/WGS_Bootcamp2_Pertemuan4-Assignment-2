@@ -1,1 +1,3 @@
-console.log("first");
+const validator = require("validator");
+
+console.log(validator.isEmail("feriteja@gmail"));

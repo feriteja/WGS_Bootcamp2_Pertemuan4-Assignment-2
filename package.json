@@ -4,8 +4,12 @@
   "description": "bootmcamp pertemuan 4",
   "main": "app.js",
   "scripts": {
-    "start": "node app"
+    "start": "node app",
+    "fol": "ls"
   },
   "author": "Feri Teja Kusuma",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "validator": "^13.7.0"
+  }
 }
