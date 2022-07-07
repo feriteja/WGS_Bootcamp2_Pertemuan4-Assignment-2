@@ -8,8 +8,8 @@ const rl = readline.createInterface({
 
 const identity = {};
 
-const inputName = () => {
-  rl.question("your Name: ", (name) => {
+const inputIdentity = () => {
+  rl.question("your  Name: ", (name) => {
     identity.name = name;
     inputNumberPhone();
   });
@@ -42,4 +42,4 @@ const inputEmail = () => {
   });
 };
 
-inputName();
+inputIdentity();
