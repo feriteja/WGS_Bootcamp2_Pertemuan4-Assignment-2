@@ -6,25 +6,40 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-rl.question("What is yout name: ", (name) => {
-  rl.question("What is your contact: ", (number) => {
-    const isNumber = validator.isMobilePhone(number, "id-ID");
-    if (!isNumber) {
-      console.log(`number: ${number} is not valid`);
-      return rl.close();
-    }
-    rl.question("What is your email: ", (email) => {
-      const isEmail = validator.isEmail(email);
-      if (!isEmail) {
-        console.log(`email: ${email} is not valid`);
-        return rl.close();
-      }
+const identity = {};
 
-      console.log(
-        `\nYour name is ${name},\nwith number: ${number}, \nyour email address: ${email}`
-      );
-
-      rl.close();
-    });
+const inputName = () => {
+  rl.question("your Name: ", (name) => {
+    identity.name = name;
+    inputNumberPhone();
   });
-});
+};
+
+const inputNumberPhone = () => {
+  rl.question("Your phone number: ", (number) => {
+    const isNumberPhone = validator.isMobilePhone(number, "id-ID");
+    if (!isNumberPhone) {
+      console.log(`Number ${number} is not valid`);
+      return inputNumberPhone();
+    }
+    identity.phone = number;
+    inputEmail();
+  });
+};
+
+const inputEmail = () => {
+  rl.question("Your Email: ", (email) => {
+    const isEmail = validator.isEmail(email);
+    if (!isEmail) {
+      console.log(`Email ${email} is not valid`);
+      return inputEmail();
+    }
+    identity.email = email;
+    console.log(
+      `\nYour name: ${identity.name},\nYour phone: ${identity.phone},\nYour email: ${identity.email}`
+    );
+    rl.close();
+  });
+};
+
+inputName();
