@@ -1,0 +1,11 @@
+{
+  "name": "wgs_bootcamp2_pertemuan4-2",
+  "version": "1.0.0",
+  "description": "bootmcamp pertemuan 4",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "author": "Feri Teja Kusuma",
+  "license": "ISC"
+}
